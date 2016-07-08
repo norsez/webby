@@ -70,7 +70,7 @@ class FontTableViewController: UITableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showText" {
 
-      guard let path = NSBundle.mainBundle().pathForResource("unicode-text", ofType: "txt") else {
+      guard let path = NSBundle.mainBundle().pathForResource("zawgyicode-text", ofType: "txt") else {
         assert(false, "can't find unicode-text.txt")
       }
 
