@@ -41,9 +41,9 @@
 		F3AA86151D2652EB008B5DA7 = {
 			isa = PBXGroup;
 			children = (
-				F3AA86331D2653B9008B5DA7 /* WebKit.framework */,
 				F3AA86201D2652EB008B5DA7 /* webby */,
 				F3AA861F1D2652EB008B5DA7 /* Products */,
+				F3AA86331D2653B9008B5DA7 /* WebKit.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -290,6 +290,7 @@
 				F3AA86321D2652EB008B5DA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
