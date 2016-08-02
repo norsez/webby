@@ -33,7 +33,6 @@ class FontTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hidesBottomBarWhenPushed = true
         for family: String in UIFont.familyNames() {
             print("\(family)")
             for names: String in UIFont.fontNamesForFamilyName(family) {
@@ -41,10 +40,10 @@ class FontTableViewController: UITableViewController {
             }
         }
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -85,7 +84,7 @@ class FontTableViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForCell(cell),
                 let font = self.CellFonts[indexPath.row] {
                 let tdc = segue.destinationViewController as! TextDisplayViewController
-                
+
                 if TextCacheManager.shared.text == nil {
                     do {
                         TextCacheManager.shared.text = try self.contentEncoding.loadSampleContent()
@@ -94,9 +93,8 @@ class FontTableViewController: UITableViewController {
                         assert(false, "\(error)")
                     }
                 }
-                
                 tdc.font = font
-                
+
             } else {
                 assert(false, "invalid cell and indexPath")
             }

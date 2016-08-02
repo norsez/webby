@@ -40,6 +40,16 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>dev-wb-api.abct.io</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
 	</dict>
 	<key>UIAppFonts</key>
 	<array>

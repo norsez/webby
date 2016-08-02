@@ -76,5 +76,11 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate{
   func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
     print(error)
   }
+    
+    func webView(webView: WKWebView, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge,
+                 completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
+        let cred = NSURLCredential.init(forTrust: challenge.protectionSpace.serverTrust!)
+        completionHandler(.UseCredential, cred)
+    }
 }
 
