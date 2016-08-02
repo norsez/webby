@@ -14,6 +14,11 @@
 		F350C4551D2F5C6E00667C21 /* myanmar2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F350C44F1D2F521500667C21 /* myanmar2.ttf */; };
 		F350C4581D2F5F1800667C21 /* zawgyicode-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = F350C4571D2F5F1800667C21 /* zawgyicode-text.txt */; };
 		F350C45A1D2F620300667C21 /* TextDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C4591D2F620300667C21 /* TextDisplayViewController.swift */; };
+		F350C45C1D33802B00667C21 /* AlphabetCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C45B1D33802B00667C21 /* AlphabetCollectionViewController.swift */; };
+		F350C45E1D33873B00667C21 /* AlphabetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C45D1D33873B00667C21 /* AlphabetCell.swift */; };
+		F350C4601D33AE4D00667C21 /* ContentEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C45F1D33AE4D00667C21 /* ContentEncoding.swift */; };
+		F350C4621D33AF7300667C21 /* unicode-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = F350C4611D33AF7300667C21 /* unicode-text.txt */; };
+		F3753CBA1D506490008035ED /* TextCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3753CB91D506490008035ED /* TextCacheManager.swift */; };
 		F3AA86221D2652EB008B5DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */; };
 		F3AA86241D2652EB008B5DA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86231D2652EB008B5DA7 /* ViewController.swift */; };
 		F3AA86271D2652EB008B5DA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3AA86251D2652EB008B5DA7 /* Main.storyboard */; };
@@ -30,6 +35,11 @@
 		F350C4521D2F53E800667C21 /* FontTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontTableViewController.swift; sourceTree = "<group>"; };
 		F350C4571D2F5F1800667C21 /* zawgyicode-text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "zawgyicode-text.txt"; sourceTree = "<group>"; };
 		F350C4591D2F620300667C21 /* TextDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDisplayViewController.swift; sourceTree = "<group>"; };
+		F350C45B1D33802B00667C21 /* AlphabetCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetCollectionViewController.swift; sourceTree = "<group>"; };
+		F350C45D1D33873B00667C21 /* AlphabetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetCell.swift; sourceTree = "<group>"; };
+		F350C45F1D33AE4D00667C21 /* ContentEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentEncoding.swift; sourceTree = "<group>"; };
+		F350C4611D33AF7300667C21 /* unicode-text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "unicode-text.txt"; sourceTree = "<group>"; };
+		F3753CB91D506490008035ED /* TextCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCacheManager.swift; sourceTree = "<group>"; };
 		F3AA861E1D2652EB008B5DA7 /* webby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = webby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3AA86231D2652EB008B5DA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +78,7 @@
 			children = (
 				F350C4511D2F527500667C21 /* mm-fonts */,
 				F350C4571D2F5F1800667C21 /* zawgyicode-text.txt */,
+				F350C4611D33AF7300667C21 /* unicode-text.txt */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -95,8 +106,12 @@
 				F350C4561D2F5ED900667C21 /* resources */,
 				F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */,
 				F3AA86231D2652EB008B5DA7 /* ViewController.swift */,
+				F350C45F1D33AE4D00667C21 /* ContentEncoding.swift */,
 				F350C4521D2F53E800667C21 /* FontTableViewController.swift */,
 				F350C4591D2F620300667C21 /* TextDisplayViewController.swift */,
+				F3753CB91D506490008035ED /* TextCacheManager.swift */,
+				F350C45B1D33802B00667C21 /* AlphabetCollectionViewController.swift */,
+				F350C45D1D33873B00667C21 /* AlphabetCell.swift */,
 				F3AA86251D2652EB008B5DA7 /* Main.storyboard */,
 				F3AA86281D2652EB008B5DA7 /* Assets.xcassets */,
 				F3AA862A1D2652EB008B5DA7 /* LaunchScreen.storyboard */,
@@ -165,6 +180,7 @@
 			files = (
 				F350C44E1D2F51C800667C21 /* zawgyi.ttf in Resources */,
 				F3AA862C1D2652EB008B5DA7 /* LaunchScreen.storyboard in Resources */,
+				F350C4621D33AF7300667C21 /* unicode-text.txt in Resources */,
 				F350C4541D2F5C6A00667C21 /* myanmar3.ttf in Resources */,
 				F350C4551D2F5C6E00667C21 /* myanmar2.ttf in Resources */,
 				F3AA86291D2652EB008B5DA7 /* Assets.xcassets in Resources */,
@@ -181,9 +197,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F350C4601D33AE4D00667C21 /* ContentEncoding.swift in Sources */,
 				F350C45A1D2F620300667C21 /* TextDisplayViewController.swift in Sources */,
 				F350C4531D2F53E800667C21 /* FontTableViewController.swift in Sources */,
+				F350C45C1D33802B00667C21 /* AlphabetCollectionViewController.swift in Sources */,
 				F3AA86241D2652EB008B5DA7 /* ViewController.swift in Sources */,
+				F3753CBA1D506490008035ED /* TextCacheManager.swift in Sources */,
+				F350C45E1D33873B00667C21 /* AlphabetCell.swift in Sources */,
 				F3AA86221D2652EB008B5DA7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

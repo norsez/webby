@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="x5m-f7-iLI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="x5m-f7-iLI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -87,11 +87,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellID" textLabel="QLI-hu-3RK" detailTextLabel="6QY-mN-2W8" rowHeight="104" style="IBUITableViewCellStyleSubtitle" id="eRL-f8-TZf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="CellID" textLabel="QLI-hu-3RK" detailTextLabel="6QY-mN-2W8" rowHeight="104" style="IBUITableViewCellStyleSubtitle" id="eRL-f8-TZf">
                                 <rect key="frame" x="0.0" y="92" width="600" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eRL-f8-TZf" id="mRt-Lt-GLP">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="103.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="533" height="103.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QLI-hu-3RK">
@@ -112,6 +112,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="b1X-ZX-ZRU" kind="show" identifier="showText" id="2E5-VZ-6Vg"/>
+                                    <segue destination="zve-22-Y3d" kind="show" identifier="showAlphabetTable" trigger="accessoryAction" id="BgL-Hh-8uf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -124,7 +125,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bdi-iP-lmL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="1167"/>
+            <point key="canvasLocation" x="1203" y="1038"/>
         </scene>
         <!--Text Display View Controller-->
         <scene sceneID="9ei-ZO-UYs">
@@ -161,6 +162,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AA7-ea-WD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1857" y="1167"/>
+        </scene>
+        <!--Alphabet Collection View Controller-->
+        <scene sceneID="02X-3f-ShQ">
+            <objects>
+                <collectionViewController id="zve-22-Y3d" customClass="AlphabetCollectionViewController" customModule="webby" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="u5c-py-hGh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="u25-4f-Qfk">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellId" id="i3x-tt-7iu" customClass="AlphabetCell" customModule="webby" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKI-9X-der">
+                                            <rect key="frame" x="4" y="14" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUp-Os-IcC">
+                                            <rect key="frame" x="14.5" y="36" width="21.5" height="14"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="14" id="CjR-px-7c6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="LUp-Os-IcC" firstAttribute="centerX" secondItem="i3x-tt-7iu" secondAttribute="centerX" id="CPg-yg-Mtq"/>
+                                    <constraint firstAttribute="bottom" secondItem="LUp-Os-IcC" secondAttribute="bottom" id="cpr-8F-ncu"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="detailLabel" destination="LUp-Os-IcC" id="XaS-Se-az0"/>
+                                    <outlet property="textLabel" destination="TKI-9X-der" id="7tT-76-4xC"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="zve-22-Y3d" id="76v-Jx-6lZ"/>
+                            <outlet property="delegate" destination="zve-22-Y3d" id="fvK-tJ-UbQ"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70E-2R-Iuj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2494" y="1004"/>
         </scene>
         <!--Native-->
         <scene sceneID="iqr-KS-P2e">
