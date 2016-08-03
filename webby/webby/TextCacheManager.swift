@@ -8,8 +8,15 @@
 
 import UIKit
 
+
+struct AlphabetTile {
+    let char: String
+    let unicodeNumber: Int
+}
+
 class TextCacheManager: NSObject {
 
+    
     var text: String?
 
     private var _unicodeSampleText: String?
@@ -49,7 +56,27 @@ class TextCacheManager: NSObject {
         }
     }
 
-
+    private var _tiles = [AlphabetTile]()
+    private let FIRST_LETTER = 0x1000
+    private let NUM_LETTERS = 159
+    
+    var alphabetTiles: [AlphabetTile] {
+        get {
+            
+            if self._tiles.count == 0 {
+                
+                for index in 0 ... 9 {
+                    self._tiles.append(AlphabetTile(char: "\(index)", unicodeNumber: index))
+                }
+                for index in FIRST_LETTER ... (FIRST_LETTER + NUM_LETTERS) {
+                    self._tiles.append(AlphabetTile(char: "\(UnicodeScalar(index))", unicodeNumber: index))
+                }
+            }
+            
+            return self._tiles
+        }
+    }
+    
 
     //#MARK: - singleton
     static let shared: TextCacheManager = {

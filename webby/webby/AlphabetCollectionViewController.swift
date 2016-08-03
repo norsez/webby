@@ -10,13 +10,15 @@ import UIKit
 
 private let reuseIdentifier = "CellId"
 
+
 class AlphabetCollectionViewController: UICollectionViewController {
 
-    let FIRST_LETTER = 0x1000
-    let NUM_LETTERS = 159
+
     let LETTERS_PER_ROWS = 8
     var contentEncoding: ContentEncoding?
-    var font: UIFont = UIFont.systemFontOfSize(16)
+    private let FONT_SIZE: CGFloat = 28
+    var font: UIFont = UIFont.systemFontOfSize(36)
+
 
 
     override func viewDidLoad() {
@@ -27,6 +29,7 @@ class AlphabetCollectionViewController: UICollectionViewController {
         flowLayout.itemSize = CGSizeMake(width, width + 21)
         self.collectionView!.collectionViewLayout = flowLayout
         self.title = "\(self.font.fontName)"
+
     }
 
 
@@ -37,17 +40,21 @@ class AlphabetCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return NUM_LETTERS
+        return TextCacheManager.shared.alphabetTiles.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! AlphabetCell
-        let ordinal = indexPath.row + FIRST_LETTER
-        let txt = "\(UnicodeScalar(ordinal))"
-        cell.textLabel.text = txt
-        cell.textLabel.font = self.font
-        cell.detailLabel.text = "\(ordinal)"
+        let atile = TextCacheManager.shared.alphabetTiles[indexPath.row]
+        cell.textLabel.text = atile.char
+        cell.textLabel.font = self.font.fontWithSize(self.FONT_SIZE)
+        cell.detailLabel.text = "\(atile.unicodeNumber)"
         return cell
+    }
+
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//
+//        UIPasteboard.generalPasteboard().string =
     }
 
     // MARK: UICollectionViewDelegate
