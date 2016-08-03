@@ -8,7 +8,7 @@
 
 import UIKit
 import WebKit
-class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
+class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
     let KEY_ESTIMATED_PROGRESS = "estimatedProgress"
 
@@ -16,16 +16,16 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     var loadButton: UIBarButtonItem?
 
     @IBOutlet weak var progressView: UIProgressView!
-    
+
     private func startup() {
         let path = NSBundle.mainBundle().pathForResource("zawgyi", ofType: "ttf")
         print(path)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.startup()
-        
+
         self.webView = WKWebView(frame: self.view.bounds)
         self.webView?.UIDelegate = self
         self.webView?.navigationDelegate = self
@@ -38,6 +38,8 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         self.navigationItem.rightBarButtonItems = [self.loadButton!, loadHTMLButton]
 
         UIPasteboard.generalPasteboard().string = "https://www.google.com"
+        self.progressView.progress = 0
+        self.progressView.hidden = true
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -54,6 +56,8 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         if keyPath == self.KEY_ESTIMATED_PROGRESS {
             self.progressView.progress = Float((self.webView?.estimatedProgress)!)
         }
+
+        self.progressView.hidden = self.progressView.progress == 0 || self.progressView.progress == 1
     }
 
     func loadHTMLfromClipboard () {
@@ -102,6 +106,6 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         let cred = NSURLCredential.init(forTrust: challenge.protectionSpace.serverTrust!)
         completionHandler(.UseCredential, cred)
     }
-    
-    
+
+
 }

@@ -13,7 +13,7 @@ private let reuseIdentifier = "CellId"
 class AlphabetCollectionViewController: UICollectionViewController {
 
     let FIRST_LETTER = 0x1000
-    let NUM_LETTERS = 300
+    let NUM_LETTERS = 159
     let LETTERS_PER_ROWS = 8
     var contentEncoding: ContentEncoding?
     var font: UIFont = UIFont.systemFontOfSize(16)

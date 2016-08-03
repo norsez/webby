@@ -20,7 +20,7 @@
 		F350C4621D33AF7300667C21 /* unicode-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = F350C4611D33AF7300667C21 /* unicode-text.txt */; };
 		F3753CBA1D506490008035ED /* TextCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3753CB91D506490008035ED /* TextCacheManager.swift */; };
 		F3AA86221D2652EB008B5DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */; };
-		F3AA86241D2652EB008B5DA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86231D2652EB008B5DA7 /* ViewController.swift */; };
+		F3AA86241D2652EB008B5DA7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86231D2652EB008B5DA7 /* WebViewController.swift */; };
 		F3AA86271D2652EB008B5DA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3AA86251D2652EB008B5DA7 /* Main.storyboard */; };
 		F3AA86291D2652EB008B5DA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3AA86281D2652EB008B5DA7 /* Assets.xcassets */; };
 		F3AA862C1D2652EB008B5DA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3AA862A1D2652EB008B5DA7 /* LaunchScreen.storyboard */; };
@@ -42,7 +42,7 @@
 		F3753CB91D506490008035ED /* TextCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCacheManager.swift; sourceTree = "<group>"; };
 		F3AA861E1D2652EB008B5DA7 /* webby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = webby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3AA86231D2652EB008B5DA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F3AA86231D2652EB008B5DA7 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F3AA86261D2652EB008B5DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3AA86281D2652EB008B5DA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3AA862B1D2652EB008B5DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 			children = (
 				F350C4561D2F5ED900667C21 /* resources */,
 				F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */,
-				F3AA86231D2652EB008B5DA7 /* ViewController.swift */,
+				F3AA86231D2652EB008B5DA7 /* WebViewController.swift */,
 				F350C45F1D33AE4D00667C21 /* ContentEncoding.swift */,
 				F350C4521D2F53E800667C21 /* FontTableViewController.swift */,
 				F350C4591D2F620300667C21 /* TextDisplayViewController.swift */,
@@ -201,7 +201,7 @@
 				F350C45A1D2F620300667C21 /* TextDisplayViewController.swift in Sources */,
 				F350C4531D2F53E800667C21 /* FontTableViewController.swift in Sources */,
 				F350C45C1D33802B00667C21 /* AlphabetCollectionViewController.swift in Sources */,
-				F3AA86241D2652EB008B5DA7 /* ViewController.swift in Sources */,
+				F3AA86241D2652EB008B5DA7 /* WebViewController.swift in Sources */,
 				F3753CBA1D506490008035ED /* TextCacheManager.swift in Sources */,
 				F350C45E1D33873B00667C21 /* AlphabetCell.swift in Sources */,
 				F3AA86221D2652EB008B5DA7 /* AppDelegate.swift in Sources */,
