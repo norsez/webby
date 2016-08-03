@@ -11,9 +11,10 @@
 	<key>fonts</key>
 	<array>
 		<string>Myanmar3</string>
+		<string>Myanmar3</string>
 	</array>
 	<key>length</key>
-	<integer>47349</integer>
+	<integer>60275</integer>
 	<key>version</key>
 	<integer>18</integer>
 </dict>

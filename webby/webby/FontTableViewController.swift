@@ -8,22 +8,46 @@
 
 import UIKit
 
+struct CustomFont {
+    static let ZAWGYI = "Zawgyi-One"
+    static let MYANMAR2 = "Myanmar2"
+    static let MYANMAR3 = "Myanmar3"
+    static let MYANMAR_MN = "Myanmar MN"
+    static let MENLO_REG = "Menlo-Regular"
+    static let HELVETICA = "HelveticaNeue"
+    static let PYIDAUNGSU = "Pyidaungsu"
+
+    static var ALL_FONTS: [UIFont] {
+        get {
+            let names = [UIFont.systemFontOfSize(16).fontName,
+                         CustomFont.ZAWGYI,
+                         CustomFont.PYIDAUNGSU,
+                         CustomFont.MYANMAR2,
+                         CustomFont.MYANMAR3,
+                         CustomFont.HELVETICA
+                         ]
+
+            return names.flatMap({ (name) -> UIFont? in
+                return CustomFont.font(withName: name)
+            })
+        }
+    }
+
+    static func font(withName name: String) -> UIFont? {
+        return UIFont(name: name, size: 16)
+    }
+}
+
+
 class FontTableViewController: UITableViewController {
 
-    struct CustomFont {
-        static let ZAWGYI = "Zawgyi-One"
-        static let MYANMAR2 = "Myanmar2"
-        static let MYANMAR3 = "Myanmar3"
-        static let MYANMAR_MN = "Myanmar MN"
-        static let MENLO_REG = "Menlo-Regular"
-        static let HELVETICA = "HelveticaNeue"
-    }
 
     let UNIT_TEST_ALPHABET = "\u{104E}"
     let CELL_ID = "CellID"
     var contentEncoding: ContentEncoding = .Zawgyi
     static let FONT_SIZE: CGFloat = 20
     let CellFonts = [UIFont.systemFontOfSize(FontTableViewController.FONT_SIZE),
+                     UIFont(name: CustomFont.PYIDAUNGSU, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.ZAWGYI, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.HELVETICA, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.MYANMAR2, size: FontTableViewController.FONT_SIZE),
@@ -75,32 +99,33 @@ class FontTableViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        guard let cell = sender as? UITableViewCell else {
-            assert(false, "sender must be a cell.")
+
+//
+//        if segue.identifier == "showText" {
+//
+//            if let indexPath = self.tableView.indexPathForCell(cell),
+//                let font = self.CellFonts[indexPath.row] {
+//                let tdc = segue.destinationViewController as! TextDisplayViewController
+//                tdc.font = font
+//
+//            } else {
+//                assert(false, "invalid cell and indexPath")
+//            }
+//
+//
+        //        } else
+
+        if segue.identifier == "showTestText" {
+            if UIPasteboard.generalPasteboard().string == nil {
+                TextCacheManager.shared.text = TextCacheManager.shared.zawgyiSampleText
+            }
         }
 
-        if segue.identifier == "showText" {
+        if segue.identifier == "showAlphabetTable" {
 
-            if let indexPath = self.tableView.indexPathForCell(cell),
-                let font = self.CellFonts[indexPath.row] {
-                let tdc = segue.destinationViewController as! TextDisplayViewController
-
-                if TextCacheManager.shared.text == nil {
-                    do {
-                        TextCacheManager.shared.text = try self.contentEncoding.loadSampleContent()
-                        tdc.contentEncoding = self.contentEncoding
-                    } catch {
-                        assert(false, "\(error)")
-                    }
-                }
-                tdc.font = font
-
-            } else {
-                assert(false, "invalid cell and indexPath")
+            guard let cell = sender as? UITableViewCell else {
+                assert(false, "sender must be a cell.")
             }
-
-
-        } else if segue.identifier == "showAlphabetTable" {
 
             if let indexPath = self.tableView.indexPathForCell(cell),
                 let font = self.CellFonts[indexPath.row] {

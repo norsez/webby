@@ -7,19 +7,19 @@
 //
 import Foundation
 enum ContentEncoding: String {
-    case Unicode, Zawgyi
+    case Unicode, Zawgyi, Unknown
 
-    func loadSampleContent() throws -> String {
-
-        var filename = "zawgyicode-text"
-        if self == .Unicode {
-            filename = "unicode-text"
-        }
-
-        guard let path = NSBundle.mainBundle().pathForResource(filename, ofType: "txt") else {
-            assert(false, "can't find \(filename).txt")
-        }
-        let text = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
-        return text as String
-    }
+//    func loadSampleContent() throws -> String {
+//
+//        var filename = "zawgyicode-text"
+//        if self == .Unicode {
+//            filename = "unicode-text"
+//        }
+//
+//        guard let path = NSBundle.mainBundle().pathForResource(filename, ofType: "txt") else {
+//            assert(false, "can't find \(filename).txt")
+//        }
+//        let text = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+//        return text as String
+//    }
 }

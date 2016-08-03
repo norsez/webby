@@ -18,6 +18,8 @@
 		F350C45E1D33873B00667C21 /* AlphabetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C45D1D33873B00667C21 /* AlphabetCell.swift */; };
 		F350C4601D33AE4D00667C21 /* ContentEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C45F1D33AE4D00667C21 /* ContentEncoding.swift */; };
 		F350C4621D33AF7300667C21 /* unicode-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = F350C4611D33AF7300667C21 /* unicode-text.txt */; };
+		F3533BE31D51D9B10014B284 /* Pyidaungsu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3533BE21D51D9B10014B284 /* Pyidaungsu.ttf */; };
+		F3533BE51D51E2C60014B284 /* TestTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3533BE41D51E2C60014B284 /* TestTextViewController.swift */; };
 		F3753CBA1D506490008035ED /* TextCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3753CB91D506490008035ED /* TextCacheManager.swift */; };
 		F3AA86221D2652EB008B5DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */; };
 		F3AA86241D2652EB008B5DA7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86231D2652EB008B5DA7 /* WebViewController.swift */; };
@@ -39,8 +41,10 @@
 		F350C45D1D33873B00667C21 /* AlphabetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetCell.swift; sourceTree = "<group>"; };
 		F350C45F1D33AE4D00667C21 /* ContentEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentEncoding.swift; sourceTree = "<group>"; };
 		F350C4611D33AF7300667C21 /* unicode-text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "unicode-text.txt"; sourceTree = "<group>"; };
+		F3533BE21D51D9B10014B284 /* Pyidaungsu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pyidaungsu.ttf; sourceTree = "<group>"; };
+		F3533BE41D51E2C60014B284 /* TestTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTextViewController.swift; sourceTree = "<group>"; };
 		F3753CB91D506490008035ED /* TextCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCacheManager.swift; sourceTree = "<group>"; };
-		F3AA861E1D2652EB008B5DA7 /* webby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = webby.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3AA861E1D2652EB008B5DA7 /* MMfont.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMfont.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3AA86231D2652EB008B5DA7 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F3AA86261D2652EB008B5DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 		F350C4511D2F527500667C21 /* mm-fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F3533BE21D51D9B10014B284 /* Pyidaungsu.ttf */,
 				F350C4501D2F522500667C21 /* myanmar3.ttf */,
 				F350C44D1D2F51C800667C21 /* zawgyi.ttf */,
 				F350C44F1D2F521500667C21 /* myanmar2.ttf */,
@@ -95,7 +100,7 @@
 		F3AA861F1D2652EB008B5DA7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F3AA861E1D2652EB008B5DA7 /* webby.app */,
+				F3AA861E1D2652EB008B5DA7 /* MMfont.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 				F350C45F1D33AE4D00667C21 /* ContentEncoding.swift */,
 				F350C4521D2F53E800667C21 /* FontTableViewController.swift */,
 				F350C4591D2F620300667C21 /* TextDisplayViewController.swift */,
+				F3533BE41D51E2C60014B284 /* TestTextViewController.swift */,
 				F3753CB91D506490008035ED /* TextCacheManager.swift */,
 				F350C45B1D33802B00667C21 /* AlphabetCollectionViewController.swift */,
 				F350C45D1D33873B00667C21 /* AlphabetCell.swift */,
@@ -137,7 +143,7 @@
 			);
 			name = webby;
 			productName = webby;
-			productReference = F3AA861E1D2652EB008B5DA7 /* webby.app */;
+			productReference = F3AA861E1D2652EB008B5DA7 /* MMfont.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -180,6 +186,7 @@
 			files = (
 				F350C44E1D2F51C800667C21 /* zawgyi.ttf in Resources */,
 				F3AA862C1D2652EB008B5DA7 /* LaunchScreen.storyboard in Resources */,
+				F3533BE31D51D9B10014B284 /* Pyidaungsu.ttf in Resources */,
 				F350C4621D33AF7300667C21 /* unicode-text.txt in Resources */,
 				F350C4541D2F5C6A00667C21 /* myanmar3.ttf in Resources */,
 				F350C4551D2F5C6E00667C21 /* myanmar2.ttf in Resources */,
@@ -205,6 +212,7 @@
 				F3753CBA1D506490008035ED /* TextCacheManager.swift in Sources */,
 				F350C45E1D33873B00667C21 /* AlphabetCell.swift in Sources */,
 				F3AA86221D2652EB008B5DA7 /* AppDelegate.swift in Sources */,
+				F3533BE51D51E2C60014B284 /* TestTextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,8 +327,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = webby/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.webby;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.mmfont;
+				PRODUCT_NAME = MMfont;
 			};
 			name = Debug;
 		};
@@ -330,8 +338,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = webby/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.webby;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.mmfont;
+				PRODUCT_NAME = MMfont;
 			};
 			name = Release;
 		};
