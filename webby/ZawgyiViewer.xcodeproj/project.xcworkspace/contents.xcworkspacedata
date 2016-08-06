@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:webby.xcodeproj">
+      location = "self:/Users/norsez/Dropbox/Coding/iOS/webby/webby/ZawgyiViewer.xcodeproj">
    </FileRef>
 </Workspace>

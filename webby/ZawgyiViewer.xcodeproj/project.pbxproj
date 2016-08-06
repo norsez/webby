@@ -44,7 +44,7 @@
 		F3533BE21D51D9B10014B284 /* Pyidaungsu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pyidaungsu.ttf; sourceTree = "<group>"; };
 		F3533BE41D51E2C60014B284 /* TestTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTextViewController.swift; sourceTree = "<group>"; };
 		F3753CB91D506490008035ED /* TextCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCacheManager.swift; sourceTree = "<group>"; };
-		F3AA861E1D2652EB008B5DA7 /* MMfont.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMfont.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3AA861E1D2652EB008B5DA7 /* ZawgyiViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZawgyiViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3AA86231D2652EB008B5DA7 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		F3AA86261D2652EB008B5DA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		F3AA861F1D2652EB008B5DA7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F3AA861E1D2652EB008B5DA7 /* MMfont.app */,
+				F3AA861E1D2652EB008B5DA7 /* ZawgyiViewer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,9 +129,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F3AA861D1D2652EB008B5DA7 /* webby */ = {
+		F3AA861D1D2652EB008B5DA7 /* ZawgyiViewer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F3AA86301D2652EB008B5DA7 /* Build configuration list for PBXNativeTarget "webby" */;
+			buildConfigurationList = F3AA86301D2652EB008B5DA7 /* Build configuration list for PBXNativeTarget "ZawgyiViewer" */;
 			buildPhases = (
 				F3AA861A1D2652EB008B5DA7 /* Sources */,
 				F3AA861B1D2652EB008B5DA7 /* Frameworks */,
@@ -141,9 +141,9 @@
 			);
 			dependencies = (
 			);
-			name = webby;
+			name = ZawgyiViewer;
 			productName = webby;
-			productReference = F3AA861E1D2652EB008B5DA7 /* MMfont.app */;
+			productReference = F3AA861E1D2652EB008B5DA7 /* ZawgyiViewer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -158,10 +158,11 @@
 				TargetAttributes = {
 					F3AA861D1D2652EB008B5DA7 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = M4AJR3AUMW;
 					};
 				};
 			};
-			buildConfigurationList = F3AA86191D2652EB008B5DA7 /* Build configuration list for PBXProject "webby" */;
+			buildConfigurationList = F3AA86191D2652EB008B5DA7 /* Build configuration list for PBXProject "ZawgyiViewer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -174,7 +175,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F3AA861D1D2652EB008B5DA7 /* webby */,
+				F3AA861D1D2652EB008B5DA7 /* ZawgyiViewer */,
 			);
 		};
 /* End PBXProject section */
@@ -325,10 +326,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = webby/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.mmfont;
-				PRODUCT_NAME = MMfont;
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.zawgyiviewer;
+				PRODUCT_NAME = ZawgyiViewer;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -336,17 +340,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = webby/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.mmfont;
-				PRODUCT_NAME = MMfont;
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.zawgyiviewer;
+				PRODUCT_NAME = ZawgyiViewer;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F3AA86191D2652EB008B5DA7 /* Build configuration list for PBXProject "webby" */ = {
+		F3AA86191D2652EB008B5DA7 /* Build configuration list for PBXProject "ZawgyiViewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3AA862E1D2652EB008B5DA7 /* Debug */,
@@ -355,7 +362,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F3AA86301D2652EB008B5DA7 /* Build configuration list for PBXNativeTarget "webby" */ = {
+		F3AA86301D2652EB008B5DA7 /* Build configuration list for PBXNativeTarget "ZawgyiViewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F3AA86311D2652EB008B5DA7 /* Debug */,

@@ -125,6 +125,7 @@ class FontTableViewController: UITableViewController {
 
             guard let cell = sender as? UITableViewCell else {
                 assert(false, "sender must be a cell.")
+              return
             }
 
             if let indexPath = self.tableView.indexPathForCell(cell),
