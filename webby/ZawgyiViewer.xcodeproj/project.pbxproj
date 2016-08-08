@@ -20,7 +20,6 @@
 		F350C4621D33AF7300667C21 /* unicode-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = F350C4611D33AF7300667C21 /* unicode-text.txt */; };
 		F3533BE31D51D9B10014B284 /* Pyidaungsu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3533BE21D51D9B10014B284 /* Pyidaungsu.ttf */; };
 		F3533BE51D51E2C60014B284 /* TestTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3533BE41D51E2C60014B284 /* TestTextViewController.swift */; };
-		F353C6401D5874A5008DC951 /* CarrierManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F353C63F1D5874A5008DC951 /* CarrierManager.swift */; };
 		F353C6421D587617008DC951 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F353C6411D587617008DC951 /* CoreTelephony.framework */; };
 		F3753CBA1D506490008035ED /* TextCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3753CB91D506490008035ED /* TextCacheManager.swift */; };
 		F3AA86221D2652EB008B5DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */; };
@@ -45,7 +44,6 @@
 		F350C4611D33AF7300667C21 /* unicode-text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "unicode-text.txt"; sourceTree = "<group>"; };
 		F3533BE21D51D9B10014B284 /* Pyidaungsu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pyidaungsu.ttf; sourceTree = "<group>"; };
 		F3533BE41D51E2C60014B284 /* TestTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTextViewController.swift; sourceTree = "<group>"; };
-		F353C63F1D5874A5008DC951 /* CarrierManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarrierManager.swift; sourceTree = "<group>"; };
 		F353C6411D587617008DC951 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F3753CB91D506490008035ED /* TextCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCacheManager.swift; sourceTree = "<group>"; };
 		F3AA861E1D2652EB008B5DA7 /* ZawgyiViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZawgyiViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +114,6 @@
 			children = (
 				F350C4561D2F5ED900667C21 /* resources */,
 				F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */,
-				F353C63F1D5874A5008DC951 /* CarrierManager.swift */,
 				F3AA86231D2652EB008B5DA7 /* WebViewController.swift */,
 				F350C45F1D33AE4D00667C21 /* ContentEncoding.swift */,
 				F350C4521D2F53E800667C21 /* FontTableViewController.swift */,
@@ -214,7 +211,6 @@
 			files = (
 				F350C4601D33AE4D00667C21 /* ContentEncoding.swift in Sources */,
 				F350C45A1D2F620300667C21 /* TextDisplayViewController.swift in Sources */,
-				F353C6401D5874A5008DC951 /* CarrierManager.swift in Sources */,
 				F350C4531D2F53E800667C21 /* FontTableViewController.swift in Sources */,
 				F350C45C1D33802B00667C21 /* AlphabetCollectionViewController.swift in Sources */,
 				F3AA86241D2652EB008B5DA7 /* WebViewController.swift in Sources */,
