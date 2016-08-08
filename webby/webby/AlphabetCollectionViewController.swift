@@ -14,10 +14,10 @@ private let reuseIdentifier = "CellId"
 class AlphabetCollectionViewController: UICollectionViewController {
 
 
-    let LETTERS_PER_ROWS = 8
+    let LETTERS_PER_ROWS = 5
     var contentEncoding: ContentEncoding?
     private let FONT_SIZE: CGFloat = 28
-    var font: UIFont = UIFont.systemFontOfSize(36)
+    var font: UIFont = UIFont.systemFontOfSize(48)
 
 
 
@@ -54,7 +54,8 @@ class AlphabetCollectionViewController: UICollectionViewController {
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 //
-//        UIPasteboard.generalPasteboard().string =
+        let atile = TextCacheManager.shared.alphabetTiles[indexPath.row]
+        UIPasteboard.generalPasteboard().string = atile.char
     }
 
     // MARK: UICollectionViewDelegate

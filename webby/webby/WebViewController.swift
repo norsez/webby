@@ -16,20 +16,31 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     var loadButton: UIBarButtonItem?
 
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var topTextField: UITextField!
+
+    private var loadedURL: NSURL?
 
     private func startup() {
-        let path = NSBundle.mainBundle().pathForResource("zawgyi", ofType: "ttf")
-        print(path)
+
+        self.webView = WKWebView(frame: CGRect.zero)
+        self.webView?.UIDelegate = self
+        self.webView?.navigationDelegate = self
+        self.view.insertSubview(self.webView!, belowSubview: self.progressView)
+        self.webView?.translatesAutoresizingMaskIntoConstraints = false
+
+        var constraints: [NSLayoutConstraint] = []
+        let views = ["addressBar": self.topTextField, "webView": self.webView!, "progressBar": self.progressView]
+        constraints.appendContentsOf( NSLayoutConstraint.constraintsWithVisualFormat("V:[addressBar]-[webView]-|", options: [], metrics: nil, views: views))
+        constraints.appendContentsOf( NSLayoutConstraint.constraintsWithVisualFormat("|-[webView]-|", options: [], metrics: nil, views: views))
+
+        self.view.addConstraints(constraints)
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.startup()
 
-        self.webView = WKWebView(frame: self.view.bounds)
-        self.webView?.UIDelegate = self
-        self.webView?.navigationDelegate = self
-        self.view.insertSubview(self.webView!, belowSubview: self.progressView)
 
         self.loadButton = UIBarButtonItem(title: "Load URL", style: .Plain, target: self, action: #selector(loadURLfromClipboard))
 
@@ -37,9 +48,10 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
         self.navigationItem.rightBarButtonItems = [self.loadButton!, loadHTMLButton]
 
-        UIPasteboard.generalPasteboard().string = "https://www.google.com"
+        UIPasteboard.generalPasteboard().string = "http://7daydaily.com"
         self.progressView.progress = 0
         self.progressView.hidden = true
+        self.loadURLfromClipboard()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -58,15 +70,18 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         }
 
         self.progressView.hidden = self.progressView.progress == 0 || self.progressView.progress == 1
+
+        //print("loading progress: \(self.webView?.estimatedProgress) ")
     }
 
     func loadHTMLfromClipboard () {
         guard let html = UIPasteboard.generalPasteboard().string else {
-            print ("no html content in clipboard")
+            self.topTextField.text = "no text pasted."
             return
         }
 
-        self.webView!.loadHTMLString(html, baseURL: NSURL(string:"http://google.com"))
+        self.webView!.loadHTMLString(html, baseURL:nil)
+        self.topTextField.text = "loaded html from clipboard length: \(html.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)) chars"
     }
 
     func loadURLfromClipboard () {
@@ -84,6 +99,8 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         let req = NSURLRequest(URL: url)
         self.progressView.progress = 0
         self.webView!.loadRequest(req)
+        self.topTextField.text = "loading \(url)…"
+        self.loadedURL = url
     }
 
     private func displayText(text: String) {
@@ -95,6 +112,9 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         print("ok")
         self.progressView.progress = 0
+        if let url = self.loadedURL {
+            self.topTextField.text = "🔗\(url)"
+        }
     }
 
     func webView(webView: WKWebView, didFailNavigation navigation: WKNavigation!, withError error: NSError) {
@@ -107,5 +127,9 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         completionHandler(.UseCredential, cred)
     }
 
+    func webView(webView: WKWebView, decidePolicyForNavigationResponse navigationResponse: WKNavigationResponse, decisionHandler: (WKNavigationResponsePolicy) -> Void) {
+        print("")
+        decisionHandler(.Allow)
+    }
 
 }
