@@ -101,7 +101,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellID" textLabel="QLI-hu-3RK" detailTextLabel="6QY-mN-2W8" rowHeight="104" style="IBUITableViewCellStyleSubtitle" id="eRL-f8-TZf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellID" textLabel="QLI-hu-3RK" rowHeight="104" style="IBUITableViewCellStyleDefault" id="eRL-f8-TZf">
                                 <rect key="frame" x="0.0" y="92" width="600" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eRL-f8-TZf" id="mRt-Lt-GLP">
@@ -109,24 +109,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QLI-hu-3RK">
-                                            <rect key="frame" x="15" y="24" width="57" height="36"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6QY-mN-2W8">
-                                            <rect key="frame" x="15" y="60" width="56" height="19.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="550" height="103.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" white="0.49503877740000002" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="zve-22-Y3d" kind="show" identifier="showAlphabetTable" trigger="accessoryAction" id="BgL-Hh-8uf"/>
-                                    <segue destination="zve-22-Y3d" kind="show" id="k7H-wj-WL5"/>
+                                    <segue destination="zve-22-Y3d" kind="show" identifier="showAlphabetTable" id="k7H-wj-WL5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -210,7 +203,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pt-HK-Hqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1806" y="1024"/>
+            <point key="canvasLocation" x="1947" y="1031"/>
         </scene>
         <!--Text Display View Controller-->
         <scene sceneID="9ei-ZO-UYs">

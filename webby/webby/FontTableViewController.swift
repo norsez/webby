@@ -19,12 +19,12 @@ struct CustomFont {
 
     static var ALL_FONTS: [UIFont] {
         get {
-            let names = [UIFont.systemFontOfSize(16).fontName,
-                         CustomFont.ZAWGYI,
+            let names = [CustomFont.ZAWGYI,
                          CustomFont.PYIDAUNGSU,
                          CustomFont.MYANMAR2,
                          CustomFont.MYANMAR3,
-                         CustomFont.HELVETICA
+                         CustomFont.HELVETICA,
+                         UIFont.systemFontOfSize(16).fontName
                          ]
 
             return names.flatMap({ (name) -> UIFont? in
@@ -41,18 +41,18 @@ struct CustomFont {
 
 class FontTableViewController: UITableViewController {
 
-
     let UNIT_TEST_ALPHABET = "\u{104E}"
     let CELL_ID = "CellID"
     var contentEncoding: ContentEncoding = .Zawgyi
-    static let FONT_SIZE: CGFloat = 20
-    let CellFonts = [UIFont.systemFontOfSize(FontTableViewController.FONT_SIZE),
+    static let FONT_SIZE: CGFloat = 24
+    let CellFonts = [
                      UIFont(name: CustomFont.PYIDAUNGSU, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.ZAWGYI, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.HELVETICA, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.MYANMAR2, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.MYANMAR3, size: FontTableViewController.FONT_SIZE),
-                     UIFont(name: CustomFont.MYANMAR_MN, size: FontTableViewController.FONT_SIZE)
+                     UIFont(name: CustomFont.MYANMAR_MN, size: FontTableViewController.FONT_SIZE),
+                     UIFont.systemFontOfSize(FontTableViewController.FONT_SIZE)
     ]
 
     override func viewDidLoad() {
@@ -88,11 +88,12 @@ class FontTableViewController: UITableViewController {
         cell.textLabel?.text = self.UNIT_TEST_ALPHABET
         cell.textLabel?.textAlignment = .Center
         if let font = self.CellFonts[indexPath.row] {
-            cell.textLabel?.font = font
-            cell.detailTextLabel?.text = "\(font.fontName) size: \(font.pointSize)"
+            let text = NSMutableAttributedString(string: "[\(self.UNIT_TEST_ALPHABET)]   \t", attributes: [NSFontAttributeName: font.fontWithSize(34)])
+            text.appendAttributedString(NSAttributedString(string: font.fontName, attributes: [NSFontAttributeName: font]))
+            
+            cell.textLabel?.attributedText = text
         } else {
-            cell.textLabel?.text = ""
-            cell.detailTextLabel?.text = "error loading font."
+            cell.textLabel?.text = "error loading font."
         }
         return cell
     }

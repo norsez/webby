@@ -20,7 +20,6 @@
 		F350C4621D33AF7300667C21 /* unicode-text.txt in Resources */ = {isa = PBXBuildFile; fileRef = F350C4611D33AF7300667C21 /* unicode-text.txt */; };
 		F3533BE31D51D9B10014B284 /* Pyidaungsu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3533BE21D51D9B10014B284 /* Pyidaungsu.ttf */; };
 		F3533BE51D51E2C60014B284 /* TestTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3533BE41D51E2C60014B284 /* TestTextViewController.swift */; };
-		F353C6421D587617008DC951 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F353C6411D587617008DC951 /* CoreTelephony.framework */; };
 		F3753CBA1D506490008035ED /* TextCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3753CB91D506490008035ED /* TextCacheManager.swift */; };
 		F3AA86221D2652EB008B5DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */; };
 		F3AA86241D2652EB008B5DA7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86231D2652EB008B5DA7 /* WebViewController.swift */; };
@@ -61,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F353C6421D587617008DC951 /* CoreTelephony.framework in Frameworks */,
 				F3AA86341D2653B9008B5DA7 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
