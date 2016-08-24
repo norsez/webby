@@ -49,6 +49,7 @@
 		F350C4611D33AF7300667C21 /* unicode-text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "unicode-text.txt"; sourceTree = "<group>"; };
 		F3533BE21D51D9B10014B284 /* Pyidaungsu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pyidaungsu.ttf; sourceTree = "<group>"; };
 		F3533BE41D51E2C60014B284 /* TestTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTextViewController.swift; sourceTree = "<group>"; };
+		F353C6411D587617008DC951 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F3753CB91D506490008035ED /* TextCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCacheManager.swift; sourceTree = "<group>"; };
 		F3759BE71D6AD907009BDE99 /* EncodingPrediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingPrediction.swift; sourceTree = "<group>"; };
 		F3759BE91D6AF2D2009BDE99 /* KeyboardPredictViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPredictViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 		F3AA86151D2652EB008B5DA7 = {
 			isa = PBXGroup;
 			children = (
+				F353C6411D587617008DC951 /* CoreTelephony.framework */,
 				F3AA86201D2652EB008B5DA7 /* webby */,
 				F3AA861F1D2652EB008B5DA7 /* Products */,
 				F3AA86331D2653B9008B5DA7 /* WebKit.framework */,
@@ -345,6 +347,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = webby/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.zawgyiviewer;
 				PRODUCT_NAME = ZawgyiViewer;
@@ -359,6 +362,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = webby/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.zawgyiviewer;
 				PRODUCT_NAME = ZawgyiViewer;

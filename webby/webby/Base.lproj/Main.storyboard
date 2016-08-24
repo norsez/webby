@@ -87,7 +87,7 @@
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="y4V-GW-AsI"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -264,12 +264,12 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="ZCZ-ev-clX">
                         <rightBarButtonItems>
-                            <barButtonItem title="Options" id="AtM-i4-73i">
+                            <barButtonItem image="options" id="AtM-i4-73i">
                                 <connections>
                                     <action selector="showTextOptions" destination="eAw-r0-936" id="vyy-9h-jFy"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Text" id="oV1-aA-lSW"/>
+                            <barButtonItem image="mmtext" id="oV1-aA-lSW"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -327,7 +327,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTk-cn-D7i" customClass="TestTextHeaderView" customModule="ZawgyiViewer" customModuleProvider="target">
-                                <rect key="frame" x="28" y="72" width="544" height="100"/>
+                                <rect key="frame" x="28" y="28" width="544" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-rg-0OV">
                                         <rect key="frame" x="8" y="8" width="69" height="21"/>
@@ -336,7 +336,7 @@
                                             <constraint firstAttribute="height" constant="21" id="yd2-Dn-JcE"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="8" maxValue="36" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aW-6W-Tuf">
@@ -492,6 +492,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="mmtext" width="44" height="44"/>
+        <image name="options" width="44" height="44"/>
         <image name="tab_font" width="33" height="33"/>
         <image name="tab_guess" width="33" height="33"/>
         <image name="tab_webview" width="33" height="33"/>
