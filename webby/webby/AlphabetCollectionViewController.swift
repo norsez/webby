@@ -48,7 +48,7 @@ class AlphabetCollectionViewController: UICollectionViewController {
         let atile = TextCacheManager.shared.alphabetTiles[indexPath.row]
         cell.textLabel.text = atile.char
         cell.textLabel.font = self.font.fontWithSize(self.FONT_SIZE)
-        cell.detailLabel.text = "\(atile.unicodeNumber)\n\(String(format:"%02X", Int(atile.unicodeNumber)))"
+        cell.detailLabel.text = "\(atile.unicodeNumber)\nU+\(String(format:"%02X", Int(atile.unicodeNumber)).uppercaseString)"
         return cell
     }
 

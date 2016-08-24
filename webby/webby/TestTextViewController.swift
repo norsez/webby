@@ -117,7 +117,7 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
             fatalError("segue id can't be nil")
         }
 
-        if segueId == "showTextOptions" {
+        if segueId == "showTextConfig" {
             guard let tov = segue.destinationViewController as? TextConfigViewController else {
                 fatalError("expect TextConfigViewController here")
             }

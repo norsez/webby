@@ -91,6 +91,7 @@
 		F350C4561D2F5ED900667C21 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				F353C6411D587617008DC951 /* CoreTelephony.framework */,
 				F350C4511D2F527500667C21 /* mm-fonts */,
 				F350C4571D2F5F1800667C21 /* zawgyicode-text.txt */,
 				F350C4611D33AF7300667C21 /* unicode-text.txt */,
@@ -101,7 +102,6 @@
 		F3AA86151D2652EB008B5DA7 = {
 			isa = PBXGroup;
 			children = (
-				F353C6411D587617008DC951 /* CoreTelephony.framework */,
 				F3AA86201D2652EB008B5DA7 /* webby */,
 				F3AA861F1D2652EB008B5DA7 /* Products */,
 				F3AA86331D2653B9008B5DA7 /* WebKit.framework */,
@@ -347,7 +347,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = webby/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.zawgyiviewer;
 				PRODUCT_NAME = ZawgyiViewer;
@@ -362,7 +362,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = webby/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = th.co.bluedot.zawgyiviewer;
 				PRODUCT_NAME = ZawgyiViewer;

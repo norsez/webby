@@ -23,7 +23,7 @@ class TextConfigViewController: UIViewController {
     @IBAction func fontSizeDidChange(sender: AnyObject) {
         self.fontSizeLabel.text = "Font size: \(self.fontSizeSlider.value)"
         if let c = fontSizeValueDidChange {
-            c (fontSize: CGFloat(self.fontSizeSlider.value))
+            c (fontSize: CGFloat(Int(self.fontSizeSlider.value)))
         }
     }
 

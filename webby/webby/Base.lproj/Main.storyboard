@@ -26,17 +26,29 @@
                                     <constraint firstAttribute="height" constant="2" id="cWb-Ti-YvH"/>
                                 </constraints>
                             </progressView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O46-3h-dwK">
+                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rpo-g3-WFH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9EK-jN-47p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3T4-ms-B2A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9EK-jN-47p" secondAttribute="trailing" id="Dj5-eg-vSV"/>
+                            <constraint firstItem="O46-3h-dwK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="F9n-mW-7Ku"/>
                             <constraint firstItem="9EK-jN-47p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Qyq-Yo-TzO"/>
+                            <constraint firstItem="O46-3h-dwK" firstAttribute="top" secondItem="9EK-jN-47p" secondAttribute="bottom" constant="6" id="pLY-ve-2sX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O46-3h-dwK" secondAttribute="trailing" id="qY8-6z-ovh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fdc-nD-Swt"/>
                     <connections>
                         <outlet property="progressView" destination="9EK-jN-47p" id="xSn-n0-Co5"/>
+                        <outlet property="topTextField" destination="O46-3h-dwK" id="2WQ-Rf-Gkv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -266,10 +278,14 @@
                         <rightBarButtonItems>
                             <barButtonItem image="options" id="AtM-i4-73i">
                                 <connections>
-                                    <action selector="showTextOptions" destination="eAw-r0-936" id="vyy-9h-jFy"/>
+                                    <segue destination="Oe9-Ym-OcS" kind="show" identifier="showTextConfig" id="hyR-uL-Hlh"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="mmtext" id="oV1-aA-lSW"/>
+                            <barButtonItem image="mmtext" id="oV1-aA-lSW">
+                                <connections>
+                                    <action selector="showTextOptions" destination="eAw-r0-936" id="wRK-BG-MOf"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -326,51 +342,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTk-cn-D7i" customClass="TestTextHeaderView" customModule="ZawgyiViewer" customModuleProvider="target">
-                                <rect key="frame" x="28" y="28" width="544" height="100"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-rg-0OV">
-                                        <rect key="frame" x="8" y="8" width="69" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="69" id="1FI-TU-3Td"/>
-                                            <constraint firstAttribute="height" constant="21" id="yd2-Dn-JcE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="8" maxValue="36" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aW-6W-Tuf">
-                                        <rect key="frame" x="6" y="37" width="532" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Sk7-N5-Ldl"/>
-                                        </constraints>
-                                        <color key="maximumTrackTintColor" red="1" green="0.8208972739" blue="0.0" alpha="0.4482800388" colorSpace="calibratedRGB"/>
-                                        <color key="thumbTintColor" red="1" green="0.8208972739" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="fontSizeDidChange:" destination="Oe9-Ym-OcS" eventType="valueChanged" id="8aU-MG-KKA"/>
-                                            <action selector="fontSizeSliderValueDidChange:" destination="CTk-cn-D7i" eventType="valueChanged" id="j01-mh-bDt"/>
-                                        </connections>
-                                    </slider>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-rg-0OV">
+                                <rect key="frame" x="20" y="72" width="69" height="21"/>
                                 <constraints>
-                                    <constraint firstItem="CNI-rg-0OV" firstAttribute="leading" secondItem="CTk-cn-D7i" secondAttribute="leading" constant="8" id="1SK-rA-HyS"/>
-                                    <constraint firstItem="3aW-6W-Tuf" firstAttribute="leading" secondItem="CTk-cn-D7i" secondAttribute="leading" constant="8" id="92H-PG-dyx"/>
-                                    <constraint firstAttribute="trailing" secondItem="3aW-6W-Tuf" secondAttribute="trailing" constant="8" id="FUO-YU-Yw8"/>
-                                    <constraint firstItem="CNI-rg-0OV" firstAttribute="top" secondItem="CTk-cn-D7i" secondAttribute="top" constant="8" id="iI5-pa-fWb"/>
-                                    <constraint firstItem="3aW-6W-Tuf" firstAttribute="top" secondItem="CNI-rg-0OV" secondAttribute="bottom" constant="8" id="m3k-br-Yi3"/>
-                                    <constraint firstAttribute="height" constant="100" id="qth-cf-Hfg"/>
+                                    <constraint firstAttribute="width" constant="69" id="1FI-TU-3Td"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="9CO-E1-CeQ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="cVn-3g-Xaa"/>
+                                    <constraint firstAttribute="height" constant="21" id="yd2-Dn-JcE"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1FI-TU-3Td"/>
+                                        <exclude reference="cVn-3g-Xaa"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="8" maxValue="36" translatesAutoresizingMaskIntoConstraints="NO" id="3aW-6W-Tuf">
+                                <rect key="frame" x="18" y="101" width="564" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="b0E-4B-9LR"/>
+                                </constraints>
+                                <color key="maximumTrackTintColor" red="1" green="0.8208972739" blue="0.0" alpha="0.4482800388" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="1" green="0.8208972739" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <outlet property="fontSizeSlider" destination="3aW-6W-Tuf" id="GkW-Hf-WLr"/>
+                                    <action selector="fontSizeDidChange:" destination="Oe9-Ym-OcS" eventType="valueChanged" id="8aU-MG-KKA"/>
                                 </connections>
-                            </view>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CTk-cn-D7i" firstAttribute="leading" secondItem="C8K-Od-Cbn" secondAttribute="leadingMargin" constant="8" id="EGw-ey-4nH"/>
-                            <constraint firstItem="CTk-cn-D7i" firstAttribute="top" secondItem="eyk-Bg-ebz" secondAttribute="bottom" constant="8" id="Nd5-Je-geb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CTk-cn-D7i" secondAttribute="trailing" constant="8" id="Ujy-O5-Jmk"/>
+                            <constraint firstItem="CNI-rg-0OV" firstAttribute="top" secondItem="eyk-Bg-ebz" secondAttribute="bottom" constant="8" id="5g2-7a-fGq"/>
+                            <constraint firstItem="3aW-6W-Tuf" firstAttribute="leading" secondItem="C8K-Od-Cbn" secondAttribute="leadingMargin" id="ABf-2t-Oac"/>
+                            <constraint firstItem="CNI-rg-0OV" firstAttribute="leading" secondItem="C8K-Od-Cbn" secondAttribute="leadingMargin" id="VKq-k1-8f8"/>
+                            <constraint firstItem="3aW-6W-Tuf" firstAttribute="top" secondItem="CNI-rg-0OV" secondAttribute="bottom" constant="8" id="VjN-O4-uj5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3aW-6W-Tuf" secondAttribute="trailing" id="XfV-T8-Pyl"/>
                         </constraints>
                     </view>
                     <connections>
@@ -492,10 +500,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mmtext" width="44" height="44"/>
-        <image name="options" width="44" height="44"/>
-        <image name="tab_font" width="33" height="33"/>
-        <image name="tab_guess" width="33" height="33"/>
-        <image name="tab_webview" width="33" height="33"/>
+        <image name="mmtext" width="22" height="22"/>
+        <image name="options" width="22" height="22"/>
+        <image name="tab_font" width="25" height="25"/>
+        <image name="tab_guess" width="25" height="25"/>
+        <image name="tab_webview" width="25" height="25"/>
     </resources>
 </document>
