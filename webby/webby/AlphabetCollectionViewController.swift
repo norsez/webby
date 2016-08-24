@@ -14,7 +14,7 @@ private let reuseIdentifier = "CellId"
 class AlphabetCollectionViewController: UICollectionViewController {
 
 
-    let LETTERS_PER_ROWS = 8
+    let LETTERS_PER_ROWS = 6
     var contentEncoding: ContentEncoding?
     private let FONT_SIZE: CGFloat = 28
     var font: UIFont = UIFont.systemFontOfSize(36)
@@ -48,7 +48,7 @@ class AlphabetCollectionViewController: UICollectionViewController {
         let atile = TextCacheManager.shared.alphabetTiles[indexPath.row]
         cell.textLabel.text = atile.char
         cell.textLabel.font = self.font.fontWithSize(self.FONT_SIZE)
-        cell.detailLabel.text = "\(atile.unicodeNumber)"
+        cell.detailLabel.text = "\(atile.unicodeNumber)\n\(String(format:"%02X", Int(atile.unicodeNumber)))"
         return cell
     }
 

@@ -16,15 +16,18 @@ struct CustomFont {
     static let MENLO_REG = "Menlo-Regular"
     static let HELVETICA = "HelveticaNeue"
     static let PYIDAUNGSU = "Pyidaungsu"
+    static let MYMYANMARX = "MyMyanmar X"
 
     static var ALL_FONTS: [UIFont] {
         get {
             let names = [UIFont.systemFontOfSize(16).fontName,
                          CustomFont.ZAWGYI,
                          CustomFont.PYIDAUNGSU,
+                         CustomFont.MYMYANMARX,
                          CustomFont.MYANMAR2,
                          CustomFont.MYANMAR3,
                          CustomFont.HELVETICA
+
                          ]
 
             return names.flatMap({ (name) -> UIFont? in
@@ -49,6 +52,8 @@ class FontTableViewController: UITableViewController {
     let CellFonts = [UIFont.systemFontOfSize(FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.PYIDAUNGSU, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.ZAWGYI, size: FontTableViewController.FONT_SIZE),
+                    
+                     UIFont(name: CustomFont.MYMYANMARX, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.HELVETICA, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.MYANMAR2, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.MYANMAR3, size: FontTableViewController.FONT_SIZE),
@@ -85,6 +90,7 @@ class FontTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier(self.CELL_ID, forIndexPath: indexPath)
+        cell.accessoryType = .DisclosureIndicator
         cell.textLabel?.text = self.UNIT_TEST_ALPHABET
         cell.textLabel?.textAlignment = .Center
         if let font = self.CellFonts[indexPath.row] {

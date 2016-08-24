@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F33F6BC51D6D47B000BD4E63 /* mymm.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33F6BC41D6D470200BD4E63 /* mymm.ttf */; };
+		F33F6BCB1D6D84FA00BD4E63 /* TextConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33F6BCA1D6D84FA00BD4E63 /* TextConfigViewController.swift */; };
 		F350C44C1D2F518F00667C21 /* Myanmar MN.ttc in Resources */ = {isa = PBXBuildFile; fileRef = F350C44B1D2F518F00667C21 /* Myanmar MN.ttc */; };
 		F350C44E1D2F51C800667C21 /* zawgyi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F350C44D1D2F51C800667C21 /* zawgyi.ttf */; };
 		F350C4531D2F53E800667C21 /* FontTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F350C4521D2F53E800667C21 /* FontTableViewController.swift */; };
@@ -21,6 +23,8 @@
 		F3533BE31D51D9B10014B284 /* Pyidaungsu.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3533BE21D51D9B10014B284 /* Pyidaungsu.ttf */; };
 		F3533BE51D51E2C60014B284 /* TestTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3533BE41D51E2C60014B284 /* TestTextViewController.swift */; };
 		F3753CBA1D506490008035ED /* TextCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3753CB91D506490008035ED /* TextCacheManager.swift */; };
+		F3759BE81D6AD907009BDE99 /* EncodingPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3759BE71D6AD907009BDE99 /* EncodingPrediction.swift */; };
+		F3759BEA1D6AF2D2009BDE99 /* KeyboardPredictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3759BE91D6AF2D2009BDE99 /* KeyboardPredictViewController.swift */; };
 		F3AA86221D2652EB008B5DA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */; };
 		F3AA86241D2652EB008B5DA7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA86231D2652EB008B5DA7 /* WebViewController.swift */; };
 		F3AA86271D2652EB008B5DA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3AA86251D2652EB008B5DA7 /* Main.storyboard */; };
@@ -30,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F33F6BC41D6D470200BD4E63 /* mymm.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mymm.ttf; sourceTree = "<group>"; };
+		F33F6BCA1D6D84FA00BD4E63 /* TextConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextConfigViewController.swift; sourceTree = "<group>"; };
 		F350C44B1D2F518F00667C21 /* Myanmar MN.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Myanmar MN.ttc"; path = "/Library/Fonts/Myanmar MN.ttc"; sourceTree = "<absolute>"; };
 		F350C44D1D2F51C800667C21 /* zawgyi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = zawgyi.ttf; sourceTree = "<group>"; };
 		F350C44F1D2F521500667C21 /* myanmar2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = myanmar2.ttf; sourceTree = "<group>"; };
@@ -44,6 +50,8 @@
 		F3533BE21D51D9B10014B284 /* Pyidaungsu.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pyidaungsu.ttf; sourceTree = "<group>"; };
 		F3533BE41D51E2C60014B284 /* TestTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTextViewController.swift; sourceTree = "<group>"; };
 		F3753CB91D506490008035ED /* TextCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextCacheManager.swift; sourceTree = "<group>"; };
+		F3759BE71D6AD907009BDE99 /* EncodingPrediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodingPrediction.swift; sourceTree = "<group>"; };
+		F3759BE91D6AF2D2009BDE99 /* KeyboardPredictViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardPredictViewController.swift; sourceTree = "<group>"; };
 		F3AA861E1D2652EB008B5DA7 /* ZawgyiViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZawgyiViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3AA86231D2652EB008B5DA7 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +77,7 @@
 		F350C4511D2F527500667C21 /* mm-fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F33F6BC41D6D470200BD4E63 /* mymm.ttf */,
 				F3533BE21D51D9B10014B284 /* Pyidaungsu.ttf */,
 				F350C4501D2F522500667C21 /* myanmar3.ttf */,
 				F350C44D1D2F51C800667C21 /* zawgyi.ttf */,
@@ -110,13 +119,16 @@
 			children = (
 				F350C4561D2F5ED900667C21 /* resources */,
 				F3AA86211D2652EB008B5DA7 /* AppDelegate.swift */,
+				F3759BE71D6AD907009BDE99 /* EncodingPrediction.swift */,
 				F3AA86231D2652EB008B5DA7 /* WebViewController.swift */,
 				F350C45F1D33AE4D00667C21 /* ContentEncoding.swift */,
 				F350C4521D2F53E800667C21 /* FontTableViewController.swift */,
 				F350C4591D2F620300667C21 /* TextDisplayViewController.swift */,
 				F3533BE41D51E2C60014B284 /* TestTextViewController.swift */,
+				F33F6BCA1D6D84FA00BD4E63 /* TextConfigViewController.swift */,
 				F3753CB91D506490008035ED /* TextCacheManager.swift */,
 				F350C45B1D33802B00667C21 /* AlphabetCollectionViewController.swift */,
+				F3759BE91D6AF2D2009BDE99 /* KeyboardPredictViewController.swift */,
 				F350C45D1D33873B00667C21 /* AlphabetCell.swift */,
 				F3AA86251D2652EB008B5DA7 /* Main.storyboard */,
 				F3AA86281D2652EB008B5DA7 /* Assets.xcassets */,
@@ -189,6 +201,7 @@
 				F3AA862C1D2652EB008B5DA7 /* LaunchScreen.storyboard in Resources */,
 				F3533BE31D51D9B10014B284 /* Pyidaungsu.ttf in Resources */,
 				F350C4621D33AF7300667C21 /* unicode-text.txt in Resources */,
+				F33F6BC51D6D47B000BD4E63 /* mymm.ttf in Resources */,
 				F350C4541D2F5C6A00667C21 /* myanmar3.ttf in Resources */,
 				F350C4551D2F5C6E00667C21 /* myanmar2.ttf in Resources */,
 				F3AA86291D2652EB008B5DA7 /* Assets.xcassets in Resources */,
@@ -212,7 +225,10 @@
 				F3AA86241D2652EB008B5DA7 /* WebViewController.swift in Sources */,
 				F3753CBA1D506490008035ED /* TextCacheManager.swift in Sources */,
 				F350C45E1D33873B00667C21 /* AlphabetCell.swift in Sources */,
+				F33F6BCB1D6D84FA00BD4E63 /* TextConfigViewController.swift in Sources */,
+				F3759BE81D6AD907009BDE99 /* EncodingPrediction.swift in Sources */,
 				F3AA86221D2652EB008B5DA7 /* AppDelegate.swift in Sources */,
+				F3759BEA1D6AF2D2009BDE99 /* KeyboardPredictViewController.swift in Sources */,
 				F3533BE51D51E2C60014B284 /* TestTextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

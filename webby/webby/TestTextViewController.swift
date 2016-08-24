@@ -20,20 +20,18 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
     let CELLID = "TestTextCell"
     let allFonts = CustomFont.ALL_FONTS
     let MARGIN_TOP: CGFloat = 32
-    let FONT_SIZE: CGFloat = 18
+    var fontSize: CGFloat = 18
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hidesBottomBarWhenPushed = false
         self.collectionView?.backgroundColor = UIColor.lightGrayColor()
-        let textButton = UIBarButtonItem(title: "Text", style: .Plain, target: self, action: #selector(showTextOptions))
-        self.navigationItem.rightBarButtonItem = textButton
 
         if TextCacheManager.shared.text == nil {
             TextCacheManager.shared.text = TextCacheManager.shared.unicodeSampleText
             self.title = "Unicode text"
             self.collectionView?.reloadData()
         }
-
     }
 
 
@@ -63,7 +61,7 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
         let font = self.allFonts[indexPath.item]
 
         if let text = TextCacheManager.shared.text {
-            let attr = [NSFontAttributeName: font.fontWithSize(FONT_SIZE)]
+            let attr = [NSFontAttributeName: font.fontWithSize(fontSize)]
             let rect = text.boundingRectWithSize(CGSizeMake(width, 99999), options: [.UsesFontLeading, .UsesLineFragmentOrigin], attributes: attr, context: nil)
             return CGSizeMake(width, min(max(31, rect.size.height), 278))
         } else {
@@ -78,7 +76,7 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
 
         cell.topicLabel.text = font.fontName
         if  let text = TextCacheManager.shared.text {
-            cell.testTextLabel.attributedText = NSAttributedString(string: text, attributes: [NSFontAttributeName: font.fontWithSize(FONT_SIZE)])
+            cell.testTextLabel.attributedText = NSAttributedString(string: text, attributes: [NSFontAttributeName: font.fontWithSize(fontSize)])
         }
 
         return cell
@@ -91,20 +89,20 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
 
     }
 
-    func showTextOptions () {
+    @IBAction func showTextOptions () {
         let ctrl = UIAlertController(title: "Display text", message: nil, preferredStyle: .ActionSheet)
 
-        ctrl.addAction(UIAlertAction(title: "Unicode Sample Text", style: .Default, handler: { (action) in
+        ctrl.addAction(UIAlertAction(title: "Show sample Unicode", style: .Default, handler: { (action) in
             TextCacheManager.shared.text = TextCacheManager.shared.unicodeSampleText
             self.title = "Unicode text"
             self.collectionView?.reloadData()
         }))
-        ctrl.addAction(UIAlertAction(title: "Zawgyi Sample Text", style: .Default, handler: { (action) in
+        ctrl.addAction(UIAlertAction(title: "Show sample Zawgyi", style: .Default, handler: { (action) in
             TextCacheManager.shared.text = TextCacheManager.shared.zawgyiSampleText
             self.title = "Zawgyi text"
             self.collectionView?.reloadData()
         }))
-        ctrl.addAction(UIAlertAction(title: "Paste Text", style: .Default, handler: { (action) in
+        ctrl.addAction(UIAlertAction(title: "Paste text from clipboard", style: .Default, handler: { (action) in
             if let text = UIPasteboard.generalPasteboard().string {
                 TextCacheManager.shared.text = text
                 self.title = "Unknown encoding"
@@ -112,6 +110,23 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
             }
         }))
         self.presentViewController(ctrl, animated: true, completion: nil)
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let segueId = segue.identifier else {
+            fatalError("segue id can't be nil")
+        }
+
+        if segueId == "showTextOptions" {
+            guard let tov = segue.destinationViewController as? TextConfigViewController else {
+                fatalError("expect TextConfigViewController here")
+            }
+
+            tov.fontSizeValueDidChange = { size in
+                self.fontSize = size
+                self.collectionView?.reloadData()
+            }
+        }
     }
 
 }

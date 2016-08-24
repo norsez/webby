@@ -37,7 +37,7 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
         self.navigationItem.rightBarButtonItems = [self.loadButton!, loadHTMLButton]
 
-        UIPasteboard.generalPasteboard().string = "https://www.google.com"
+        UIPasteboard.generalPasteboard().string = "http://7daydaily.com"
         self.progressView.progress = 0
         self.progressView.hidden = true
     }
@@ -45,6 +45,7 @@ class WebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.webView?.addObserver(self, forKeyPath: self.KEY_ESTIMATED_PROGRESS, options: .New, context: nil)
+      self.loadURLfromClipboard()
     }
 
     override func viewDidDisappear(animated: Bool) {
