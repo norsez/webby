@@ -25,12 +25,25 @@ class KeyboardPredictViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var textView: UITextView!
 
+
+    @IBAction func didPressZawgyi2Unicode(sender: AnyObject) {
+
+        self.textView.text = UnicodeZawgyiConverter.shared.convertToUnicode(withText: self.textView.text)
+        self.textView.font = CustomFont.font(withName: CustomFont.PYIDAUNGSU)
+        self.statusTextLabel.text = "converted to Unicode (fnt: Pyidaungsu)"
+
+    }
+    @IBAction func didPressUnicode2Zawgyi(sender: AnyObject) {
+        self.textView.text = UnicodeZawgyiConverter.shared.convertToZawgyi(withText: self.textView.text)
+        self.textView.font = CustomFont.font(withName: CustomFont.ZAWGYI)
+        self.statusTextLabel.text = "converted to Zawgyi (fnt: Zawgyi-One)"
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Predict Burmese Encoding"
         self.statusTextLabel.text = "Paste some text below…"
         self.statusTextLabel.numberOfLines = 2
-        
+
         self.textView.text = TextCacheManager.shared.unicodeSampleText
 
         let didPressPasteTextButton = UIBarButtonItem(title: "Paste Text", style: .Plain, target: self, action: #selector(didPressPasteText))
@@ -48,9 +61,9 @@ class KeyboardPredictViewController: UIViewController, UITextViewDelegate {
     }
 
     private func updateResults () {
-        
+
         self.textView.resignFirstResponder()
-        
+
         UIView.animateWithDuration(0.5, animations: {
             self.statusTextLabel.alpha = 0
         }) { (completed) in
@@ -61,12 +74,15 @@ class KeyboardPredictViewController: UIViewController, UITextViewDelegate {
             case .NOT_BURMESE:
                 text = "Not Burmese"
                 self.statusTextLabel.textColor = UIColor.redColor().asTextColor
+                self.textView.font = UIFont.systemFontOfSize(18)
             case .PROBABLY_UNICODE:
                 text = "Probably Unicode Encoding"
                 self.statusTextLabel.textColor = UIColor.greenColor().asTextColor
+                self.textView.font = CustomFont.font(withName: CustomFont.PYIDAUNGSU)
             case .PROBABLY_ZAWGYI:
                 text = "Probably Zawgyi Encoding"
                 self.statusTextLabel.textColor = UIColor.yellowColor().asTextColor
+                self.textView.font = CustomFont.font(withName: CustomFont.ZAWGYI)
             }
 
 

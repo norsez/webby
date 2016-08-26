@@ -21,6 +21,28 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
     let allFonts = CustomFont.ALL_FONTS
     let MARGIN_TOP: CGFloat = 32
     var fontSize: CGFloat = 18
+    var heightCells: [CGFloat] = []
+
+    private func computeCellSize() {
+
+        self.heightCells = [CGFloat]()
+
+        guard let text = TextCacheManager.shared.text  else {
+
+            for _ in self.allFonts {
+                self.heightCells.append(32)
+            }
+            return
+        }
+
+        for font in allFonts {
+            let width = self.view.bounds.size.width * 0.45
+            let height = self.view.bounds.size.height
+            let rect = text.boundingRectWithSize(CGSizeMake(width, height), options: [.UsesFontLeading, .UsesLineFragmentOrigin], attributes: [NSFontAttributeName: font.fontWithSize(self.fontSize)], context: nil)
+            self.heightCells.append(max(rect.size.height, 50))
+        }
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +52,10 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
         if TextCacheManager.shared.text == nil {
             TextCacheManager.shared.text = TextCacheManager.shared.unicodeSampleText
             self.title = "Unicode text"
-            self.collectionView?.reloadData()
         }
+        self.computeCellSize()
+        self.collectionView?.reloadData()
     }
-
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -44,11 +66,11 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
     }
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 8
+        return 0
     }
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 8
+        return 0
     }
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
@@ -57,17 +79,9 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
 
-        let width = ((self.collectionView?.bounds.width)! * 0.5 ) - (8 * 2)
-        let font = self.allFonts[indexPath.item]
-
-        if let text = TextCacheManager.shared.text {
-            let attr = [NSFontAttributeName: font.fontWithSize(fontSize)]
-            let rect = text.boundingRectWithSize(CGSizeMake(width, 99999), options: [.UsesFontLeading, .UsesLineFragmentOrigin], attributes: attr, context: nil)
-            return CGSizeMake(width, min(max(31, rect.size.height), 278))
-        } else {
-            return CGSizeMake(width, 31)
-        }
-
+        let width = collectionView.bounds.size.width * 0.45
+        let size = CGSizeMake(width, heightCells[indexPath.row])
+        return size
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -95,17 +109,19 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
         ctrl.addAction(UIAlertAction(title: "Show sample Unicode", style: .Default, handler: { (action) in
             TextCacheManager.shared.text = TextCacheManager.shared.unicodeSampleText
             self.title = "Unicode text"
-            self.collectionView?.reloadData()
+            self.computeCellSize()
         }))
         ctrl.addAction(UIAlertAction(title: "Show sample Zawgyi", style: .Default, handler: { (action) in
             TextCacheManager.shared.text = TextCacheManager.shared.zawgyiSampleText
             self.title = "Zawgyi text"
+            self.computeCellSize()
             self.collectionView?.reloadData()
         }))
         ctrl.addAction(UIAlertAction(title: "Paste text from clipboard", style: .Default, handler: { (action) in
             if let text = UIPasteboard.generalPasteboard().string {
                 TextCacheManager.shared.text = text
                 self.title = "Unknown encoding"
+                self.computeCellSize()
                 self.collectionView?.reloadData()
             }
         }))
@@ -124,6 +140,7 @@ class TestTextViewController: UICollectionViewController, UICollectionViewDelega
 
             tov.fontSizeValueDidChange = { size in
                 self.fontSize = size
+                self.computeCellSize()
                 self.collectionView?.reloadData()
             }
         }

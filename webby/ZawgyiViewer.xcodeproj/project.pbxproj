@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30927F21D6D9B4B0054173E /* UnicodeZawgyiConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30927F11D6D9B4B0054173E /* UnicodeZawgyiConverter.swift */; };
+		F30927F51D6D9C3C0054173E /* Rabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30927F41D6D9C3C0054173E /* Rabbit.swift */; };
 		F33F6BC51D6D47B000BD4E63 /* mymm.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F33F6BC41D6D470200BD4E63 /* mymm.ttf */; };
 		F33F6BCB1D6D84FA00BD4E63 /* TextConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33F6BCA1D6D84FA00BD4E63 /* TextConfigViewController.swift */; };
 		F350C44C1D2F518F00667C21 /* Myanmar MN.ttc in Resources */ = {isa = PBXBuildFile; fileRef = F350C44B1D2F518F00667C21 /* Myanmar MN.ttc */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F30927F11D6D9B4B0054173E /* UnicodeZawgyiConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnicodeZawgyiConverter.swift; sourceTree = "<group>"; };
+		F30927F41D6D9C3C0054173E /* Rabbit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rabbit.swift; sourceTree = "<group>"; };
 		F33F6BC41D6D470200BD4E63 /* mymm.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mymm.ttf; sourceTree = "<group>"; };
 		F33F6BCA1D6D84FA00BD4E63 /* TextConfigViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextConfigViewController.swift; sourceTree = "<group>"; };
 		F350C44B1D2F518F00667C21 /* Myanmar MN.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Myanmar MN.ttc"; path = "/Library/Fonts/Myanmar MN.ttc"; sourceTree = "<absolute>"; };
@@ -75,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F30927F31D6D9B9E0054173E /* unicodezawgyi */ = {
+			isa = PBXGroup;
+			children = (
+				F30927F41D6D9C3C0054173E /* Rabbit.swift */,
+				F30927F11D6D9B4B0054173E /* UnicodeZawgyiConverter.swift */,
+			);
+			name = unicodezawgyi;
+			sourceTree = "<group>";
+		};
 		F350C4511D2F527500667C21 /* mm-fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +145,7 @@
 				F350C45B1D33802B00667C21 /* AlphabetCollectionViewController.swift */,
 				F3759BE91D6AF2D2009BDE99 /* KeyboardPredictViewController.swift */,
 				F350C45D1D33873B00667C21 /* AlphabetCell.swift */,
+				F30927F31D6D9B9E0054173E /* unicodezawgyi */,
 				F3AA86251D2652EB008B5DA7 /* Main.storyboard */,
 				F3AA86281D2652EB008B5DA7 /* Assets.xcassets */,
 				F3AA862A1D2652EB008B5DA7 /* LaunchScreen.storyboard */,
@@ -221,7 +235,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F350C4601D33AE4D00667C21 /* ContentEncoding.swift in Sources */,
+				F30927F21D6D9B4B0054173E /* UnicodeZawgyiConverter.swift in Sources */,
 				F350C45A1D2F620300667C21 /* TextDisplayViewController.swift in Sources */,
+				F30927F51D6D9C3C0054173E /* Rabbit.swift in Sources */,
 				F350C4531D2F53E800667C21 /* FontTableViewController.swift in Sources */,
 				F350C45C1D33802B00667C21 /* AlphabetCollectionViewController.swift in Sources */,
 				F3AA86241D2652EB008B5DA7 /* WebViewController.swift in Sources */,
