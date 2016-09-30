@@ -16,8 +16,8 @@ class AlphabetCollectionViewController: UICollectionViewController {
 
     let LETTERS_PER_ROWS = 6
     var contentEncoding: ContentEncoding?
-    private let FONT_SIZE: CGFloat = 28
-    var font: UIFont = UIFont.systemFontOfSize(36)
+    fileprivate let FONT_SIZE: CGFloat = 28
+    var font: UIFont = UIFont.systemFont(ofSize: 36)
 
 
 
@@ -26,7 +26,7 @@ class AlphabetCollectionViewController: UICollectionViewController {
         let flowLayout = UICollectionViewFlowLayout()
 
         let width = self.view.bounds.size.width / CGFloat(LETTERS_PER_ROWS)
-        flowLayout.itemSize = CGSizeMake(width, width + 21)
+        flowLayout.itemSize = CGSize(width: width, height: width + 21)
         self.collectionView!.collectionViewLayout = flowLayout
         self.title = "\(self.font.fontName)"
 
@@ -34,25 +34,25 @@ class AlphabetCollectionViewController: UICollectionViewController {
 
 
     // MARK: UICollectionViewDataSource
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return TextCacheManager.shared.alphabetTiles.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! AlphabetCell
-        let atile = TextCacheManager.shared.alphabetTiles[indexPath.row]
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! AlphabetCell
+        let atile = TextCacheManager.shared.alphabetTiles[(indexPath as NSIndexPath).row]
         cell.textLabel.text = atile.char
-        cell.textLabel.font = self.font.fontWithSize(self.FONT_SIZE)
-        cell.detailLabel.text = "\(atile.unicodeNumber)\nU+\(String(format:"%02X", Int(atile.unicodeNumber)).uppercaseString)"
+        cell.textLabel.font = self.font.withSize(self.FONT_SIZE)
+        cell.detailLabel.text = "\(atile.unicodeNumber)\nU+\(String(format:"%02X", Int(atile.unicodeNumber)).uppercased())"
         return cell
     }
 
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //
 //        UIPasteboard.generalPasteboard().string =
     }

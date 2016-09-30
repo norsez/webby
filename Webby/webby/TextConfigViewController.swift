@@ -13,17 +13,17 @@ class TextConfigViewController: UIViewController {
     @IBOutlet weak var fontSizeSlider: UISlider!
     @IBOutlet weak var fontSizeLabel: UILabel!
 
-    var fontSizeValueDidChange: ((fontSize: CGFloat) -> Void)?
+    var fontSizeValueDidChange: ((_ fontSize: CGFloat) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fontSizeDidChange(self)
     }
 
-    @IBAction func fontSizeDidChange(sender: AnyObject) {
+    @IBAction func fontSizeDidChange(_ sender: AnyObject) {
         self.fontSizeLabel.text = "Font size: \(self.fontSizeSlider.value)"
         if let c = fontSizeValueDidChange {
-            c (fontSize: CGFloat(Int(self.fontSizeSlider.value)))
+            c (CGFloat(Int(self.fontSizeSlider.value)))
         }
     }
 

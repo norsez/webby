@@ -20,7 +20,7 @@ struct CustomFont {
 
     static var ALL_FONTS: [UIFont] {
         get {
-            let names = [UIFont.systemFontOfSize(16).fontName,
+            let names = [UIFont.systemFont(ofSize: 16).fontName,
                          CustomFont.ZAWGYI,
                          CustomFont.PYIDAUNGSU,
                          CustomFont.MYMYANMARX,
@@ -49,7 +49,7 @@ class FontTableViewController: UITableViewController {
     let CELL_ID = "CellID"
     var contentEncoding: ContentEncoding = .Zawgyi
     static let FONT_SIZE: CGFloat = 20
-    let CellFonts = [UIFont.systemFontOfSize(FontTableViewController.FONT_SIZE),
+    let CellFonts = [UIFont.systemFont(ofSize: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.PYIDAUNGSU, size: FontTableViewController.FONT_SIZE),
                      UIFont(name: CustomFont.ZAWGYI, size: FontTableViewController.FONT_SIZE),
                     
@@ -62,38 +62,38 @@ class FontTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        for family: String in UIFont.familyNames() {
+        for family: String in UIFont.familyNames {
             print("\(family)")
-            for names: String in UIFont.fontNamesForFamilyName(family) {
+            for names: String in UIFont.fontNames(forFamilyName: family) {
                 print("== \(names)")
             }
         }
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return CellFonts.count
     }
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(self.CELL_ID, forIndexPath: indexPath)
-        cell.accessoryType = .DisclosureIndicator
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath)
+        cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = self.UNIT_TEST_ALPHABET
-        cell.textLabel?.textAlignment = .Center
-        if let font = self.CellFonts[indexPath.row] {
+        cell.textLabel?.textAlignment = .center
+        if let font = self.CellFonts[(indexPath as NSIndexPath).row] {
             cell.textLabel?.font = font
             cell.detailTextLabel?.text = "\(font.fontName) size: \(font.pointSize)"
         } else {
@@ -103,7 +103,7 @@ class FontTableViewController: UITableViewController {
         return cell
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
 
 //
@@ -122,7 +122,7 @@ class FontTableViewController: UITableViewController {
         //        } else
 
         if segue.identifier == "showTestText" {
-            if UIPasteboard.generalPasteboard().string == nil {
+            if UIPasteboard.general.string == nil {
                 TextCacheManager.shared.text = TextCacheManager.shared.zawgyiSampleText
             }
         }
@@ -134,10 +134,10 @@ class FontTableViewController: UITableViewController {
               return
             }
 
-            if let indexPath = self.tableView.indexPathForCell(cell),
-                let font = self.CellFonts[indexPath.row] {
+            if let indexPath = self.tableView.indexPath(for: cell),
+                let font = self.CellFonts[(indexPath as NSIndexPath).row] {
 
-                let atctrl = segue.destinationViewController as! AlphabetCollectionViewController
+                let atctrl = segue.destination as! AlphabetCollectionViewController
                 atctrl.contentEncoding = self.contentEncoding
                 atctrl.font = font
             }

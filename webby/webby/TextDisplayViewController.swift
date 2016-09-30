@@ -9,35 +9,33 @@
 import UIKit
 
 class TextDisplayViewController: UIViewController {
-
-
     class ActivityDoThis: UIActivity {
         let completion: () -> Void
         let title: String
 
-        init(withTitle title: String, completion:() -> Void) {
+        init(withTitle title: String, completion:@escaping () -> Void) {
             self.completion = completion
             self.title = title
         }
+        
+        override var activityType : UIActivityType? {
+            return nil
+        }
 
-        override func activityType() -> String? {
+        override var activityTitle : String? {
             return self.title
         }
 
-        override func activityTitle() -> String? {
-            return self.title
-        }
-
-        override func canPerformWithActivityItems(activityItems: [AnyObject]) -> Bool {
+        override func canPerform(withActivityItems activityItems: [Any]) -> Bool {
             return true
         }
 
-        override func performActivity() {
+        override func perform() {
             self.completion()
         }
     }
 
-    var font: UIFont = UIFont.systemFontOfSize(12)
+    var font: UIFont = UIFont.systemFont(ofSize: 12)
     var contentEncoding: ContentEncoding?
 
     var loadTextButton: UIBarButtonItem?
@@ -47,12 +45,12 @@ class TextDisplayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.loadTextButton = UIBarButtonItem(title: "Load text from clipboard", style: .Plain, target: self, action: #selector(loadTextFromClipboard))
-        let actionButton = UIBarButtonItem(barButtonSystemItem: .Action, target: self, action: #selector(didPressAction))
+        let actionButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didPressAction))
         self.navigationItem.rightBarButtonItem = actionButton
 
         //create status bar
         self.statusLabel = UILabel()
-        self.statusLabel?.font = UIFont.systemFontOfSize(12)
+        self.statusLabel?.font = UIFont.systemFont(ofSize: 12)
         let statusTextBarButtonItem = UIBarButtonItem(customView: self.statusLabel!)
         self.toolbarItems = [statusTextBarButtonItem]
 
@@ -63,13 +61,13 @@ class TextDisplayViewController: UIViewController {
         self.updateTitle()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.textView.text = TextCacheManager.shared.text
     }
 
     @objc func loadTextFromClipboard () {
-        if let t = UIPasteboard.generalPasteboard().string {
+        if let t = UIPasteboard.general.string {
             TextCacheManager.shared.text = t
             self.textView.text = t
             self.contentEncoding = nil
@@ -113,7 +111,7 @@ class TextDisplayViewController: UIViewController {
     var activityPasteTextFromClipboard: UIActivity {
         get {
             let act = ActivityDoThis(withTitle: "Paste text") {
-                if let text = UIPasteboard.generalPasteboard().string {
+                if let text = UIPasteboard.general.string {
                     TextCacheManager.shared.text = text
                     self.textView.text = text
                     self.contentEncoding = ContentEncoding.Unknown
@@ -126,7 +124,7 @@ class TextDisplayViewController: UIViewController {
 
     func didPressAction () {
         let ctrl = UIActivityViewController(activityItems: [], applicationActivities: [self.activitySampleZawgyi, self.activitySampleUnicode, self.activityPasteTextFromClipboard])
-        self.presentViewController(ctrl, animated: true, completion: nil)
+        self.present(ctrl, animated: true, completion: nil)
     }
 
     func updateTitle() {

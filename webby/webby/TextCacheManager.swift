@@ -19,16 +19,16 @@ class TextCacheManager: NSObject {
 
     var text: String?
 
-    private var _unicodeSampleText: String?
-    private var _zawgyiSampleText: String?
+    fileprivate var _unicodeSampleText: String?
+    fileprivate var _zawgyiSampleText: String?
 
     var unicodeSampleText: String {
         get {
 
             if self._unicodeSampleText == nil {
-                if let path = NSBundle.mainBundle().pathForResource("unicode-text", ofType: "txt") {
+                if let path = Bundle.main.path(forResource: "unicode-text", ofType: "txt") {
                     do {
-                        self._unicodeSampleText = try NSString(contentsOfFile:path, encoding: NSUTF8StringEncoding) as String
+                        self._unicodeSampleText = try NSString(contentsOfFile:path, encoding: String.Encoding.utf8.rawValue) as String
                     } catch {
                         self._unicodeSampleText = "\(error)"
                     }
@@ -43,9 +43,9 @@ class TextCacheManager: NSObject {
         get {
 
             if self._zawgyiSampleText == nil {
-                if let path = NSBundle.mainBundle().pathForResource("zawgyicode-text", ofType: "txt") {
+                if let path = Bundle.main.path(forResource: "zawgyicode-text", ofType: "txt") {
                     do {
-                        self._zawgyiSampleText = try NSString(contentsOfFile:path, encoding: NSUTF8StringEncoding) as String
+                        self._zawgyiSampleText = try NSString(contentsOfFile:path, encoding: String.Encoding.utf8.rawValue) as String
                     } catch {
                         self._zawgyiSampleText = "\(error)"
                     }
@@ -56,9 +56,9 @@ class TextCacheManager: NSObject {
         }
     }
 
-    private var _tiles = [AlphabetTile]()
-    private let FIRST_LETTER = 0x1000
-    private let NUM_LETTERS = 159
+    fileprivate var _tiles = [AlphabetTile]()
+    fileprivate let FIRST_LETTER = 0x1000
+    fileprivate let NUM_LETTERS = 159
 
     var alphabetTiles: [AlphabetTile] {
         get {

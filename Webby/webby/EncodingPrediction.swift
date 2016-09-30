@@ -44,7 +44,7 @@ class EncodingPrediction: NSObject {
     static let BURMESE_RANGE = 0x1000...0x109F
 
     enum Result {
-        case PROBABLY_ZAWGYI, PROBABLY_UNICODE, NOT_BURMESE
+        case probably_ZAWGYI, probably_UNICODE, not_BURMESE
     }
 
     var nonZawgyiTotalRatio: Double {
@@ -53,19 +53,31 @@ class EncodingPrediction: NSObject {
         }
     }
 
-    func predict(withText text: String) -> (result: Result, nonZawgyiPerUnicodeRatio: Double) {
+    func predict(withText text: String) -> (result: Result, statistics: (numBurmeseChars: Int, numNonZawgyi: Int)) {
+
         let stringWithBurmese = text.onlyBurmese
-        if stringWithBurmese.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
-            return (result: .NOT_BURMESE, 0)
+        if stringWithBurmese.lengthOfBytes(using: String.Encoding.utf8) == 0 {
+            return (result: .not_BURMESE, statistics: (numBurmeseChars: 0, numNonZawgyi: 0))
         }
 
         let nonZawgyiChars = stringWithBurmese.onlyNonZawgyiChars
 
-        let tellingRatio = Double (nonZawgyiChars.lengthOfBytesUsingEncoding(NSUTF8StringEncoding)) / Double( stringWithBurmese.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let charLength = stringWithBurmese.lengthOfBytes(using: String.Encoding.utf8)
+        let numCharsNotInZawgyi = nonZawgyiChars.unicodeScalars.reduce(0) { (total, c) -> Int in
+
+            if EncodingPrediction.CHARS_NOT_IN_ZAWGYI.contains(Int(c.value)) {
+                return total + 1
+            }
+
+            return total
+        }
+
+        let statistics = (numBurmeseChars: charLength, numNonZawgyi: numCharsNotInZawgyi)
+
         if nonZawgyiChars.unicodeScalars.count > 0 {
-            return (result: .PROBABLY_UNICODE, nonZawgyiPerUnicodeRatio: tellingRatio)
+            return (result: .probably_UNICODE, statistics: statistics)
         } else {
-            return (result: .PROBABLY_ZAWGYI, nonZawgyiPerUnicodeRatio: tellingRatio)
+            return (result: .probably_ZAWGYI, statistics: statistics)
         }
     }
 

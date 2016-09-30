@@ -10,13 +10,13 @@
 	<string>38aeabf36c76d40a8ed2d256f8f3b9492c3dac07</string>
 	<key>fonts</key>
 	<array>
-		<string>Pyidaungsu</string>
+		<string>Zawgyi-One</string>
 		<string>.AppleSystemUIFont</string>
 		<string>Arial-Black</string>
 		<string>Pyidaungsu</string>
 	</array>
 	<key>length</key>
-	<integer>121697</integer>
+	<integer>134525</integer>
 	<key>version</key>
 	<integer>18</integer>
 </dict>
